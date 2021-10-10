@@ -1,5 +1,5 @@
 # Q1-a.)
-- Count the total number of HTTP requests recorded by this access logfile.   [Shell Script with annotation](https://github.com/wingying/bitly/blob/main/Q1/http_count.sh)
+- Count the total number of HTTP requests recorded by this access logfile.   [Shell Script with annotation](https://github.com/linliopen/bitlyurl/blob/main/Q1/http_count.sh)
 - Script Result:
 ```
 ******************************
@@ -22,7 +22,7 @@ TotalRequestCounts(NormarlRequests+BADRequests): 86084
 ```
 
 # Q1-b.)
-- Find the Top 10 hosts that made the most requests from 2019-06-10 00:00:00 up to and including 2019-06-19 23:59:59 [Shell Script with annotation](https://github.com/wingying/bitly/blob/main/Q1/top_hosts.sh)
+- Find the Top 10 hosts that made the most requests from 2019-06-10 00:00:00 up to and including 2019-06-19 23:59:59 [Shell Script with annotation](https://github.com/linliopen/bitlyurl/blob/main/Q1/top_hosts.sh)
 - Script Result:
 ```
 730 1.222.44.52
@@ -38,7 +38,7 @@ TotalRequestCounts(NormarlRequests+BADRequests): 86084
 ```
 
 # Q1-c.)
-- Find the country that made the most requests (hint: use the source IP address as start) [Shell Script with annotation](https://github.com/wingying/bitly/blob/main/Q1/top_country.sh)
+- Find the country that made the most requests (hint: use the source IP address as start) [Shell Script with annotation](https://github.com/linliopen/bitlyurl/blob/main/Q1/top_country.sh)
 ```
 title: "Germany",
 title: "United States",
@@ -48,12 +48,12 @@ title: "China",
 ```
 
 # Q2 Designing a bit.ly like services(API only), which includes two web API endpoints
-- [Architecture Diagram](https://github.com/wingying/bitly/blob/main/Architect_Diagram.pdf) 
+- [Architecture Diagram](https://github.com/linliopen/bitlyurl/blob/main/Architect_Diagram.pdf) 
 - **`NOTE:`** Two options of architectures are designed, `Option 1` use PostGreSQL auto-creatementid to generate shorturl based unqiueid, `Option 2` leads into Redis to generate shorturl based unqiue sid. And For `Option 2`, and for Option 2, I seperate shortcurl query&redirect requests from database to redis.
-- [Database Schema Option1](https://github.com/wingying/bitly/blob/main/Q2/Option1/models.py)
-- [Database Schema Option2](https://github.com/wingying/bitly/blob/main/Q2/Option2/models.py)
-- [Pseudo codes including urlroute, views and orm models Option 1 with annotation](https://github.com/wingying/bitly/tree/main/Q2/Option1)
-- [Pseudo codes including urlroute, views and orm models Option 2 with annotation](https://github.com/wingying/bitly/tree/main/Q2/Option2)
+- [Database Schema Option1](https://github.com/linliopen/bitlyurl/blob/main/Q2/Option1/models.py)
+- [Database Schema Option2](https://github.com/linliopen/bitlyurl/blob/main/Q2/Option2/models.py)
+- [Pseudo codes including urlroute, views and orm models Option 1 with annotation](https://github.com/linliopen/bitlyurl/tree/main/Q2/Option1)
+- [Pseudo codes including urlroute, views and orm models Option 2 with annotation](https://github.com/linliopen/bitlyurl/tree/main/Q2/Option2)
 - **CI/CD software and design considerations For each component**
 ```
 Both Option 1 and Option 2 use Django, uswgi, nginx, PostGreSQL, the difference between Option 1 and Option 2 is that Option 1 use PostGreSQL build-in auto-createment id feature as based id of shorturl, instead Option 2 use Redis incr feature to generate based id of shorturl, and I seperate ShortUrl query&redirect requests from database to Redis in order to reduce DB direct Queries.
