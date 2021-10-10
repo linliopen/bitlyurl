@@ -1,0 +1,9 @@
+#Redis_model
+
+#DB 0 to generate Decimal unique id, use for make ShortUrl later, it will be updated each time new entry created. exmaple:
+Key:        Value:
+sid         68562
+
+#DB 1 to save base-62 num based on DB0 and related original web site url, it will be created permanently. Example:
+Key:        Value:
+000000hPQ   https://www.google.com
